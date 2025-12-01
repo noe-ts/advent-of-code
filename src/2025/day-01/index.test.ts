@@ -37,8 +37,24 @@ L82`;
   });
 
   describe('Part 2', () => {
-    it('should solve example', () => {
-      expect(part2(exampleInput)).toBeGreaterThanOrEqual(0);
+    it('should count the number of times the dial points at 0 during and after each rotation', () => {
+      expect(part2(exampleInput)).toBe(6);
+    });
+
+    it('should count the number of times the dial points at 0 during and after each rotation when rotating right by 1000', () => {
+      expect(part2('R1000')).toBe(10);
+    });
+
+    it('should return 0 when input is empty', () => {
+      expect(part2('')).toBe(0);
+    });
+
+    it('should return 1 for a full right rotation of 100', () => {
+      expect(part2('R100')).toBe(1);
+    });
+
+    it('should count only transition between two R50s', () => {
+      expect(part2('R50\nR50')).toBe(1);
     });
   });
 });
